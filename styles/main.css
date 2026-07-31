@@ -1,0 +1,451 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+:root {
+  --bg-onyx: #151316;
+  --bg-card: #1d1b20;
+  --panel-border: rgba(255, 255, 255, 0.08);
+  --lime-accent: #a3e635;
+  --lime-hover: #84cc16;
+  --text-milk: #f0eee3;
+  --text-muted: #9ca3af;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-heading: 'Outfit', sans-serif;
+  --font-mono: 'Space Grotesk', monospace;
+  --transition-cubic: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--bg-onyx);
+  color: var(--text-milk);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-onyx);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--lime-accent);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* Header Navigation */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(21, 19, 22, 0.85);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--panel-border);
+}
+
+.header_container {
+  max-width: 1296px;
+  margin: 0 auto;
+  height: 4.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+}
+
+.brand_logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.35rem;
+  letter-spacing: -0.03em;
+  color: var(--text-milk);
+}
+
+.nav_menu {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.nav_link {
+  color: var(--text-milk);
+  transition: color 200ms ease;
+}
+.nav_link:hover {
+  color: var(--lime-accent);
+}
+
+.header_right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.btn_get_started {
+  background: var(--text-milk);
+  color: var(--bg-onyx);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 0.65rem 1.25rem;
+  border-radius: 12px;
+  transition: all 200ms ease;
+}
+.btn_get_started:hover {
+  background: var(--lime-accent);
+  color: var(--bg-onyx);
+  transform: translateY(-1px);
+}
+
+/* Hero Section */
+.hero_section {
+  position: relative;
+  max-width: 1296px;
+  margin: 0 auto;
+  padding: 8rem 1.5rem 10rem;
+  z-index: 10;
+}
+
+.tile_wave_canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.35;
+}
+
+.hero_h1 {
+  font-family: var(--font-heading);
+  font-size: clamp(3rem, 6vw, 5.25rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  margin-bottom: 1.5rem;
+  max-width: 22ch;
+}
+
+.hero_h1 .accent_text {
+  color: var(--lime-accent);
+}
+
+.hero_subtitle {
+  font-size: 1.25rem;
+  color: var(--text-muted);
+  max-width: 680px;
+  line-height: 1.6;
+  margin-bottom: 2.5rem;
+}
+
+/* Governance Section ("The Trust Layer for Agentic Finance") */
+.section_container {
+  max-width: 1296px;
+  margin: 0 auto 8rem;
+  padding: 0 1.5rem;
+  position: relative;
+  z-index: 10;
+}
+
+.section_kicker {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--lime-accent);
+  margin-bottom: 0.75rem;
+}
+
+.section_h2 {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin-bottom: 1rem;
+}
+
+.section_desc {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  max-width: 680px;
+  margin-bottom: 3.5rem;
+}
+
+/* 3 Governance Cards Grid */
+.cards_grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.gov_card {
+  background: var(--bg-card);
+  border: 1px solid var(--panel-border);
+  border-radius: 20px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 380px;
+  transition: all 250ms ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.gov_card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(163, 230, 53, 0.4);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+}
+
+.card_meta {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--lime-accent);
+  margin-bottom: 1.5rem;
+}
+
+.card_title {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.75rem;
+}
+
+.card_desc {
+  font-size: 1rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.vignette_box {
+  height: 140px;
+  width: 100%;
+  background: #0a090b;
+  border-radius: 12px;
+  border: 1px solid var(--panel-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* AI Agent Policy Simulator */
+.simulator_card {
+  background: var(--bg-card);
+  border: 1px solid rgba(163, 230, 53, 0.3);
+  border-radius: 24px;
+  padding: 2.5rem;
+  max-width: 800px;
+  margin: 0 auto;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.7);
+}
+
+.sim_row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--panel-border);
+}
+.sim_row:last-child {
+  border-bottom: none;
+}
+
+.sim_label {
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.sim_value {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  color: var(--lime-accent);
+}
+
+.status_pill {
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.status_pill.approved {
+  background: rgba(163, 230, 53, 0.15);
+  color: var(--lime-accent);
+  border: 1px solid rgba(163, 230, 53, 0.3);
+}
+
+.status_pill.blocked {
+  background: rgba(239, 68, 68, 0.15);
+  color: #ef4444;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+/* Footer */
+.footer {
+  border-top: 1px solid var(--panel-border);
+  background: #0d0c0e;
+  padding: 5rem 1.5rem 3rem;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+.footer_container {
+  max-width: 1296px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+/* Modals */
+.modal_overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(13, 12, 14, 0.88);
+  backdrop-filter: blur(16px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 300ms ease;
+}
+
+.modal_overlay.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal_card {
+  background: #18161a;
+  border: 1px solid rgba(163, 230, 53, 0.3);
+  border-radius: 24px;
+  width: 100%;
+  max-width: 460px;
+  padding: 2.25rem;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.8);
+  transform: translateY(20px);
+  transition: transform 300ms var(--transition-cubic);
+}
+
+.modal_overlay.is-open .modal_card {
+  transform: translateY(0);
+}
+
+.modal_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.modal_title {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+
+.modal_close {
+  font-size: 1.5rem;
+  color: var(--text-muted);
+}
+.modal_close:hover {
+  color: var(--text-milk);
+}
+
+.form_input {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--panel-border);
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+  color: var(--text-milk);
+  font-size: 0.95rem;
+  outline: none;
+  margin-bottom: 1rem;
+  transition: border-color 200ms ease;
+}
+.form_input:focus {
+  border-color: var(--lime-accent);
+}
+
+/* Toast Alert */
+.toast {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 1100;
+  background: #18161a;
+  border: 1px solid var(--lime-accent);
+  color: var(--text-milk);
+  padding: 0.85rem 1.5rem;
+  border-radius: 12px;
+  font-size: 0.875rem;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+  transform: translateY(100px);
+  opacity: 0;
+  transition: all 300ms var(--transition-cubic);
+}
+.toast.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+  .cards_grid {
+    grid-template-columns: 1fr;
+  }
+}

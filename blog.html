@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Blog — Catena Insights</title>
+  <link rel="stylesheet" href="/styles/main.css"/>
+</head>
+<body>
+  <header class="header">
+    <div class="header_container">
+      <a href="/" class="brand_logo">Catena</a>
+      <nav class="nav_menu">
+        <a href="/about" class="nav_link">About</a>
+        <a href="/blog" class="nav_link" style="color:var(--lime-accent);">Blog</a>
+      </nav>
+      <div class="header_right">
+        <button data-open-auth class="btn_get_started">Get started</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="section_container" style="padding-top: 6rem;">
+    <p class="section_kicker">Catena Insights</p>
+    <h1 class="section_h2">Agentic Finance & Infrastructure</h1>
+    <p class="section_desc">Latest research and perspectives on how AI agents use money, identity, and governance.</p>
+
+    <div class="cards_grid" style="grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));">
+      <article class="gov_card" style="min-height: 240px;">
+        <div class="card_meta"><span>Article</span> <span>Jul 2026</span></div>
+        <h3 class="card_title">Designing Trust Layers for Autonomous AI Agents</h3>
+        <p class="card_desc">How deterministic policies prevent agent runaway spending while maintaining autonomy.</p>
+      </article>
+
+      <article class="gov_card" style="min-height: 240px;">
+        <div class="card_meta"><span>Research</span> <span>Jun 2026</span></div>
+        <h3 class="card_title">Stablecoin Payment Rails for Machine Economies</h3>
+        <p class="card_desc">Why stablecoins are the native currency for instant agent-to-agent settlement.</p>
+      </article>
+    </div>
+  </main>
+
+  <script type="module" src="/js/main.js"></script>
+</body>
+</html>
